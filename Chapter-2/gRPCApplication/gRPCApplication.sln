@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "gRPCApplication", "gRPCApplication\gRPCApplication.sfproj", "{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCServer", "gRPCServer\gRPCServer.csproj", "{37034EBF-A22D-4951-AED4-40A5E66B70EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0D19DD33-3702-4525-AB46-9C8BDEC60377}"
+	ProjectSection(SolutionItems) = preProject
+		Calculator.proto = Calculator.proto
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Calculator", "Calculator", "{5DE0FA82-9DB4-4971-A424-C959A6058E1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}.Debug|x64.ActiveCfg = Debug|x64
+		{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}.Debug|x64.Build.0 = Debug|x64
+		{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}.Debug|x64.Deploy.0 = Debug|x64
+		{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}.Release|x64.ActiveCfg = Release|x64
+		{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}.Release|x64.Build.0 = Release|x64
+		{2A601EE0-C9EC-4C3D-9945-33A4AB8128DE}.Release|x64.Deploy.0 = Release|x64
+		{37034EBF-A22D-4951-AED4-40A5E66B70EE}.Debug|x64.ActiveCfg = Debug|x64
+		{37034EBF-A22D-4951-AED4-40A5E66B70EE}.Debug|x64.Build.0 = Debug|x64
+		{37034EBF-A22D-4951-AED4-40A5E66B70EE}.Release|x64.ActiveCfg = Release|x64
+		{37034EBF-A22D-4951-AED4-40A5E66B70EE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4761D35C-1575-4325-8415-6390C488E4C1}
+	EndGlobalSection
+EndGlobal
