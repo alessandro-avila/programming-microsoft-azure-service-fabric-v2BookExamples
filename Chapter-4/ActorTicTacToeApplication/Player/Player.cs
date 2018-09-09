@@ -3,6 +3,7 @@ using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Player.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace Player
@@ -16,7 +17,7 @@ namespace Player
     ///  - None: State is kept in memory only and not replicated.
     /// </remarks>
     [StatePersistence(StatePersistence.None)]
-    internal class Player : Actor, IPlayer
+    internal class Player : Actor, IPlayer, IRemindable
     {
         /// <summary>
         /// Initializes a new instance of Player
@@ -40,6 +41,9 @@ namespace Player
             return gameProxy.AcceptPlayerMoveAsync(this.Id.GetLongId(), x, y);
         }
 
+        // Timer.
+        private IActorTimer mTimer;
+
         /// <summary>
         /// This method is called whenever an actor is activated.
         /// An actor is activated the first time any of its methods are invoked.
@@ -48,6 +52,51 @@ namespace Player
         {
             ActorEventSource.Current.ActorMessage(this, "Actor activated.");
 
+            // Timer registration.
+            mTimer = this.RegisterTimer(
+                Move,                           // Callback method.
+                null,                           // Callback state.
+                TimeSpan.FromSeconds(5),        // Delay before first callback invocation.
+                TimeSpan.FromSeconds(1));       // Callback interval.
+
+            // Reminder registration.
+            string task = "Task";
+            int amount = 1800;
+            Task<IActorReminder> reminder = RegisterReminderAsync(
+                task,                           // Reminder name.
+                BitConverter.GetBytes(amount),  // Callback state.
+                TimeSpan.FromSeconds(3),        // Delay before first callback invocation.
+                TimeSpan.FromSeconds(15));      // Callback interval.
+
+            return Task.FromResult<bool>(true);
+        }
+
+        protected override Task OnDeactivateAsync()
+        {
+            // Timer unregistration.
+            if (mTimer != null)
+            {
+                this.UnregisterTimer(mTimer);
+            }
+
+            // Reminder unregistration.
+            IActorReminder reminder = GetReminder("Task");
+            UnregisterReminderAsync(reminder);
+
+            return base.OnDeactivateAsync();
+        }
+
+        private Task Move(object arg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ReceiveReminderAsync(string reminderName, byte[] state, TimeSpan dueTime, TimeSpan period)
+        {
+            if (reminderName.Equals("Task"))
+            {
+                int amount = BitConverter.ToInt32(state, 0);
+            }
             return Task.FromResult<bool>(true);
         }
     }

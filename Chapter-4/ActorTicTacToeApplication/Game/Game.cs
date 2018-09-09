@@ -83,7 +83,7 @@ namespace Game
 
         private bool HasWon(int[] board, int sum)
         {
-            return board[0] + board[1] + board[2] == sum
+            bool hasWon = board[0] + board[1] + board[2] == sum
             || board[3] + board[4] + board[5] == sum
             || board[6] + board[7] + board[8] == sum
             || board[0] + board[3] + board[6] == sum
@@ -91,6 +91,13 @@ namespace Game
             || board[2] + board[5] + board[8] == sum
             || board[0] + board[4] + board[8] == sum
             || board[2] + board[4] + board[6] == sum;
+
+            if (hasWon)
+            {
+                var evt = GetEvent<IGameEvents>();
+                evt.GameFinished("Game is Finished!");
+            }
+            return hasWon;
         }
 
         public Task<bool> AcceptPlayerToGameAsync(long playerId, string playerName)

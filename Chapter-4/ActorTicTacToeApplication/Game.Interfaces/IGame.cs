@@ -10,7 +10,7 @@ namespace Game.Interfaces
     /// This interface defines the methods exposed by an actor.
     /// Clients use this interface to interact with the actor that implements it.
     /// </summary>
-    public interface IGame : IActor
+    public interface IGame : IActor, IActorEventPublisher<IGameEvents>
     {
         Task<bool> AcceptPlayerToGameAsync(long playerId, string playerName);
         Task<int[]> GetGameBoardAsync();
