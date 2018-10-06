@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "FailoverTest", "FailoverTest\FailoverTest.sfproj", "{92E07427-E94C-4851-B141-42BDB6247074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestService\TestService.csproj", "{0A4953A3-056A-460E-ACE8-09F4B08607E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92E07427-E94C-4851-B141-42BDB6247074}.Debug|x64.ActiveCfg = Debug|x64
+		{92E07427-E94C-4851-B141-42BDB6247074}.Debug|x64.Build.0 = Debug|x64
+		{92E07427-E94C-4851-B141-42BDB6247074}.Debug|x64.Deploy.0 = Debug|x64
+		{92E07427-E94C-4851-B141-42BDB6247074}.Release|x64.ActiveCfg = Release|x64
+		{92E07427-E94C-4851-B141-42BDB6247074}.Release|x64.Build.0 = Release|x64
+		{92E07427-E94C-4851-B141-42BDB6247074}.Release|x64.Deploy.0 = Release|x64
+		{0A4953A3-056A-460E-ACE8-09F4B08607E8}.Debug|x64.ActiveCfg = Debug|x64
+		{0A4953A3-056A-460E-ACE8-09F4B08607E8}.Debug|x64.Build.0 = Debug|x64
+		{0A4953A3-056A-460E-ACE8-09F4B08607E8}.Release|x64.ActiveCfg = Release|x64
+		{0A4953A3-056A-460E-ACE8-09F4B08607E8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E01C03E-189A-498E-BA5D-400C73A07EF7}
+	EndGlobalSection
+EndGlobal
